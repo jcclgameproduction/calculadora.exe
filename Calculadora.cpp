@@ -2,7 +2,7 @@
 #include <cmath>
 #include <locale.h>
 #include <stdlib.h>
-
+#include <conio.h>
 //feito por João Carlos! 
 //Programa utilizado: Dev C++
 //1ª módulo desenvolvimento de sistemas Turma A
@@ -47,6 +47,7 @@ if (ajuda!= 'h'){
 
 ///////////mais void///////////////
 void calculadora () {
+	bool guarda;
 	char operacao;
 	double numA, numB;
 	double resultados;
@@ -84,9 +85,15 @@ void calculadora () {
 		      
 	}
 	
+	if (operacao != '+' && operacao != '/' && operacao != '*' && operacao != '-' && operacao != '^') {
+	std::cout << "\nOperação inexistente!" << std::endl;
+	guarda = false;
+	}
+	else {
+		guarda = true;
 	std::cout << "O resultado é:" << resultados << std::endl;
-	
-	std::cout << "\nVocê deseja continuar calculando?\n1-Sim\n2-Não;" << std::endl;
+	}
+	std::cout << "\nVocê deseja continuar calculando?\n1-Sim\n2-Não" << std::endl;
 	std::cin >> f;
 	switch (f) {
 		case 1:
@@ -118,6 +125,6 @@ int main(int argc, char **argv) {
 	ajuda();
 
 	calculadora();
-	
+
 	return 0;
 }
